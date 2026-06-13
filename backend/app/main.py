@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from app.core.config import settings
+
 app = FastAPI(
     title="Concord AI API",
     description="Backend API for autonomous clinical-record reconciliation.",
@@ -12,6 +14,7 @@ def read_root() -> dict[str, str]:
     return {
         "service": "Concord AI API",
         "status": "running",
+        "environment": settings.environment,
     }
 
 
